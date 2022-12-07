@@ -6,7 +6,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2019 - 2022, CodeIgniter Foundation
+ * Copyright (c) 2014 - 2019, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,6 @@
  * @author	EllisLab Dev Team
  * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
  * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
- * @copyright	Copyright (c) 2019 - 2022, CodeIgniter Foundation (https://codeigniter.com/)
  * @license	https://opensource.org/licenses/MIT	MIT License
  * @link	https://codeigniter.com
  * @since	Version 1.3.0
@@ -49,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @subpackage	Drivers
  * @category	Database
  * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/userguide3/database/
+ * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_mysqli_driver extends CI_DB {
 
@@ -117,13 +116,6 @@ class CI_DB_mysqli_driver extends CI_DB {
 	 */
 	public function db_connect($persistent = FALSE)
 	{
-		// PHP 8.1 changes default error handling mode from silent to exceptions - reverse that
-		if (is_php('8.1'))
-		{
-			$mysqli_driver = new mysqli_driver();
-			$mysqli_driver->report_mode = MYSQLI_REPORT_OFF;
-		}
-
 		// Do we have a socket path?
 		if ($this->hostname[0] === '/')
 		{
@@ -549,6 +541,28 @@ class CI_DB_mysqli_driver extends CI_DB {
 	protected function _close()
 	{
 		$this->conn_id->close();
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	* Insert_on_duplicate_update_batch statement
+	*
+	* Generates a platform-specific insert string from the supplied data
+	* MODIFIED to include ON DUPLICATE UPDATE
+	*
+	* @access public
+	* @param string the table name
+	* @param array the insert keys
+	* @param array the insert values
+	* @return string
+	*/
+	function _insert_on_duplicate_update_batch($table, $keys, $values)
+	{
+		foreach($keys as $key)
+			$update_fields[] = $key.'=VALUES('.$key.')';
+
+		return "INSERT INTO ".$table." (".implode(', ', $keys).") VALUES ".implode(', ', $values)." ON DUPLICATE KEY UPDATE ".implode(', ', $update_fields);
 	}
 
 }

@@ -1,5 +1,5 @@
 ###################
-What is CodeIgniter
+Bank Sampah 1.0
 ###################
 
 CodeIgniter is an Application Development Framework - a toolkit - for people
@@ -29,9 +29,9 @@ guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide
 Server Requirements
 *******************
 
-PHP version 5.6 or newer is recommended.
+PHP version 7.3.28 or newer is recommended.
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
+It should work on 7.3.28 as well, but we strongly advise you NOT to run
 such old versions of PHP, because of potential security and performance
 issues, as well as missing features.
 
@@ -39,7 +39,7 @@ issues, as well as missing features.
 Installation
 ************
 
-Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
+Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
 of the CodeIgniter User Guide.
 
 *******
@@ -54,7 +54,6 @@ Resources
 *********
 
 -  `User Guide <https://codeigniter.com/docs>`_
--  `Contributing Guide <https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md>`_
 -  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
 -  `Community Forums <http://forum.codeigniter.com/>`_
 -  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
