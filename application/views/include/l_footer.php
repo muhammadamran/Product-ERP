@@ -1,7 +1,5 @@
-<script src="<?= base_url(); ?>assets/login/js/jquery-3.3.1.min.js"></script>
-<script src="<?= base_url(); ?>assets/login/js/popper.min.js"></script>
-<script src="<?= base_url(); ?>assets/login/js/bootstrap.min.js"></script>
-<script src="<?= base_url(); ?>assets/login/js/main.js"></script>
+<script src="<?= base_url(); ?>assets/login/js/app.min.js"></script>
+<script src="<?= base_url(); ?>assets/login/js/theme/default.min.js"></script>
 </body>
 
 </html>

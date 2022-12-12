@@ -11,4 +11,16 @@ class Login_model extends CI_Model
             return false;
         }
     }
+
+    // APPLICATION
+    public function data_application()
+    {
+        $query = $this->db->query("SELECT * FROM application ORDER BY ID ASC LIMIT 1");
+
+        if ($query->num_rows() == 1) {
+            return $this->db->query("SELECT * FROM application ORDER BY ID ASC LIMIT 1")->result();
+        } else {
+            return "FALSE";
+        }
+    }
 }
